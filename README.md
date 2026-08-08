@@ -14,7 +14,7 @@ CleanLaunch stores the following data in `%APPDATA%/CleanLaunch/` on your device
 - **Settings** - theme, window opacity, tile size, hotkey configuration, and other preferences.
 - **Icon cache** - extracted shortcut icons cached as PNG files for fast loading.
 
-None of this local data is uploaded by CleanLaunch. It never leaves your device.
+CleanLaunch does not upload these local files. Query text may be sent to external services during Wikipedia or Google searches, only as described below.
 
 ## Data sent to external services
 
