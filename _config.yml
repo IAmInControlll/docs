@@ -1,0 +1,31 @@
+title: CleanLaunch
+tagline: A clean, minimal desktop shortcut manager for Windows
+description: Documentation, privacy policy, terms, and support for CleanLaunch, a minimal desktop shortcut manager for Windows.
+url: https://iamincontrolll.github.io
+baseurl: /docs
+lang: en-US
+
+contact_email: mdawood1806@gmail.com
+issues_url: https://github.com/IAmInControlll/docs/issues
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+kramdown:
+  input: GFM
+  auto_ids: true
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - vendor
