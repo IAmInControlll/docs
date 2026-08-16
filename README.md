@@ -1,6 +1,6 @@
 # Alcove docs
 
-The documentation and marketing site for **Alcove**, a visual workspace for Windows that keeps the things you use organised, personal, and one hotkey away.
+The documentation and marketing site for **Alcove**, a visual workspace for Windows.
 
 **[iamincontrolll.github.io/docs](https://iamincontrolll.github.io/docs/)**
 
@@ -8,7 +8,7 @@ The documentation and marketing site for **Alcove**, a visual workspace for Wind
 |---|---|
 | [Home](https://iamincontrolll.github.io/docs/) | Marketing landing page |
 | [Privacy Policy](https://iamincontrolll.github.io/docs/privacy/) | What is stored on your device, what leaves it, and how to remove it |
-| [Terms of Use](https://iamincontrolll.github.io/docs/terms/) | The licence the app is provided under |
+| [Terms of Use](https://iamincontrolll.github.io/docs/terms/) | What you can and can't do with Alcove, and the limits of the licence |
 | [Support](https://iamincontrolll.github.io/docs/support/) | Where your data lives, common questions, and how to get help |
 
 ## Tech stack
@@ -82,4 +82,4 @@ Agents working on this repo should read `CLAUDE.md` first. It points to all othe
 
 Found something inaccurate, unclear, or out of date? Please [open an issue](https://github.com/IAmInControlll/docs/issues). Anyone can, and no special access is needed.
 
-For anything you would rather not discuss in public, email <mdawood1806@gmail.com>.
+For anything you would rather not discuss in public, email <iamincontrol.dev@gmail.com>.
