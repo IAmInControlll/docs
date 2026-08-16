@@ -6,7 +6,7 @@ dist/
 node_modules/
 
 # Local-only working archive (not tracked, not deployed)
-brand/
+/brand/
 
 # Temporary implementation plans (local-only)
 ai-docs/plans/
