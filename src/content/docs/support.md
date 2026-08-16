@@ -48,7 +48,7 @@ Current builds are not code-signed, so Windows SmartScreen may show a "Windows p
 
 ### There are two installers. Which one do I want?
 
-The `.exe` (NSIS) installer is the one to use for a normal install. It installs to `%LOCALAPPDATA%\Programs\Alcove` for your user account and needs no administrator rights.
+The `.exe` (NSIS) installer is the one to use for a normal install. It installs to `%LOCALAPPDATA%\Alcove` for your user account and needs no administrator rights.
 
 The `.msi` (WiX) installer is the enterprise option. It always installs for all users, to `C:\Program Files\Alcove`, and needs administrator rights.
 
@@ -88,7 +88,9 @@ Two cautions. A backup file contains your search history and the real paths of y
 
 Uninstall from Windows Settings > Apps > Installed apps, or from the Start menu entry.
 
-The installer cleans up after itself: it restores your desktop icons if you had hidden them, removes the auto-start entry, and offers to delete your Alcove data folder. Decline that last prompt if you want to keep your workspace for a future reinstall. To remove it later by hand, delete `%APPDATA%\Alcove\`.
+The `.exe` (NSIS) installer cleans up after itself: it restores your desktop icons if Alcove hid them, removes the auto-start entry, and offers to delete your Alcove data folder. Decline that last prompt if you want to keep your workspace for a future reinstall. To remove it later by hand, delete `%APPDATA%\Alcove\`.
+
+The `.msi` (WiX) installer does not include cleanup hooks. If you uninstall via MSI, you'll need to restore desktop icons and remove the Startup shortcut manually.
 
 Backup files you exported are never touched by the uninstaller. Delete those yourself.
 

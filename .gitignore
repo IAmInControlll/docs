@@ -8,8 +8,11 @@ node_modules/
 # Local-only working archive (not tracked, not deployed)
 /brand/
 
-# Temporary implementation plans (local-only)
-ai-docs/plans/
+# AI workflow (internal tooling, not public)
+CLAUDE.md
+CONTEXT.md
+ai-docs/
+.devin/
 
 # OS / editor
 .DS_Store

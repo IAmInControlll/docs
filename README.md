@@ -74,10 +74,6 @@ brand/              # local-only brand archive (gitignored, not deployed)
   deploy.yml        # GitHub Actions deploy workflow
 ```
 
-## AI workflow
-
-Agents working on this repo should read `CLAUDE.md` first. It points to all other relevant files and encodes the project rules.
-
 ## Questions or corrections
 
 Found something inaccurate, unclear, or out of date? Please [open an issue](https://github.com/IAmInControlll/docs/issues). Anyone can, and no special access is needed.
