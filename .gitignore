@@ -1,5 +1,25 @@
-_site/
-.jekyll-cache/
-.jekyll-metadata
-.sass-cache/
-Gemfile.lock
+# Astro
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Local-only working archive (not tracked, not deployed)
+brand/
+
+# Temporary implementation plans (local-only)
+ai-docs/plans/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Playwright MCP artifacts
+.playwright-mcp/
+
+# Logs
+*.log
+npm-debug.log*

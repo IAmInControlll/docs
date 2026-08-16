@@ -1,0 +1,233 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.tsx';
+import { site } from '../config/site';
+import { nav } from '../config/nav';
+import glyphUrl from '../assets/brand/glyph.svg?url';
+import wordmarkDarkUrl from '../assets/brand/wordmark-dark.svg?url';
+import wordmarkLightUrl from '../assets/brand/wordmark-light.svg?url';
+
+interface Props {
+  title?: string;
+  description?: string;
+  heading?: string;
+  summary?: string;
+  updated?: string;
+  toc?: boolean;
+  wide?: boolean;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  heading,
+  summary,
+  updated,
+  toc = false,
+  wide = false,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const here = Astro.url.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
+const withBase = (path: string) => base + (path.startsWith('/') ? path : '/' + path);
+const isActive = (url: string) => {
+  const target = withBase(url).replace(/\/$/, '') || '/';
+  const current = here || '/';
+  return current === target;
+};
+
+const fullTitle =
+  title === site.title ? `${site.title} - ${site.tagline}` : `${title} - ${site.title}`;
+const canonicalPath = Astro.url.pathname.replace(base, '').replace(/\/+/g, '/') || '/';
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={site.url + canonicalPath} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={site.url + canonicalPath} />
+    <meta property="og:image" content={site.url + '/og.png'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={site.url + '/og.png'} />
+
+    <link rel="icon" type="image/png" href={withBase('/favicon.png')} />
+    <link rel="apple-touch-icon" href={withBase('/icon.png')} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem('alcove-theme');
+          if (saved === 'dark' || saved === 'light') {
+            document.documentElement.setAttribute('data-theme', saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="bar">
+        <a class="brand" href={withBase('/')} aria-label="Alcove home">
+          <img src={glyphUrl} alt="" width="28" height="28" />
+          <img class="wordmark wordmark-dark" src={wordmarkDarkUrl} alt="Alcove" />
+          <img class="wordmark wordmark-light" src={wordmarkLightUrl} alt="Alcove" />
+        </a>
+
+        <nav class="site-nav" aria-label="Site">
+          {
+            nav.map((item) => (
+              <a
+                href={withBase(item.url)}
+                aria-current={isActive(item.url) ? 'page' : undefined}
+              >
+                {item.title}
+              </a>
+            ))
+          }
+        </nav>
+
+        <ThemeToggle client:load />
+      </div>
+    </header>
+
+    <main id="main" class:list={[{ 'has-toc': toc, wide }]}>
+      {
+        toc && (
+          <aside class="toc" hidden>
+            <p class="toc-title">On this page</p>
+            <nav aria-label="On this page">
+              <ol></ol>
+            </nav>
+          </aside>
+        )
+      }
+
+      <article class="prose">
+        {
+          heading && (
+            <div class="page-head">
+              <h1>{heading}</h1>
+              {summary && <p class="lede">{summary}</p>}
+              {updated && (
+                <p class="badges">
+                  <span class="badge">Last updated {updated}</span>
+                </p>
+              )}
+            </div>
+          )
+        }
+
+        <slot />
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="bar">
+        <p>{site.title} - {site.tagline}</p>
+        <nav aria-label="Footer">
+          {
+            nav.map((item) => (
+              <a href={withBase(item.url)}>{item.title}</a>
+            ))
+          }
+          <a href={site.issuesUrl}>GitHub</a>
+        </nav>
+        <p class="fine">This site loads no fonts, scripts, or trackers from third parties.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var prose = document.querySelector('.prose');
+        if (!prose) return;
+
+        prose.querySelectorAll('table').forEach(function (t) {
+          if (t.parentElement && t.parentElement.classList.contains('table-wrap')) return;
+          var wrap = document.createElement('div');
+          wrap.className = 'table-wrap';
+          t.parentNode.insertBefore(wrap, t);
+          wrap.appendChild(t);
+        });
+
+        var headings = prose.querySelectorAll('h2[id], h3[id]');
+
+        headings.forEach(function (h) {
+          var a = document.createElement('a');
+          a.className = 'anchor';
+          a.href = '#' + h.id;
+          a.setAttribute('aria-label', 'Link to this section');
+          a.textContent = '#';
+          h.appendChild(a);
+        });
+
+        var toc = document.querySelector('.toc');
+        if (!toc || headings.length < 3) return;
+
+        var list = toc.querySelector('ol');
+        var links = [];
+
+        headings.forEach(function (h) {
+          var li = document.createElement('li');
+          li.className = h.tagName === 'H3' ? 'sub' : '';
+          var a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.firstChild ? h.firstChild.textContent : h.textContent;
+          li.appendChild(a);
+          list.appendChild(li);
+          links.push(a);
+        });
+
+        toc.hidden = false;
+
+        var current = null;
+        function mark(id) {
+          if (current === id) return;
+          current = id;
+          links.forEach(function (a) {
+            a.classList.toggle('active', a.hash === '#' + id);
+          });
+        }
+
+        var seen = new Map();
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              seen.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0);
+            });
+            var best = null;
+            var bestRatio = 0;
+            headings.forEach(function (h) {
+              var r = seen.get(h.id) || 0;
+              if (r > bestRatio) {
+                bestRatio = r;
+                best = h.id;
+              }
+            });
+            if (best) mark(best);
+          },
+          { rootMargin: '-72px 0px -60% 0px', threshold: [0, 0.25, 0.5, 1] }
+        );
+
+        headings.forEach(function (h) {
+          observer.observe(h);
+        });
+      })();
+    </script>
+  </body>
+</html>

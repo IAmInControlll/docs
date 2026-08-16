@@ -1,0 +1,3 @@
+#!/bin/sh
+python "$DEVIN_PROJECT_DIR/.devin/hooks/em-dash-check.py" || exit 1
+python "$DEVIN_PROJECT_DIR/.devin/hooks/secret-scan.py" || exit 1

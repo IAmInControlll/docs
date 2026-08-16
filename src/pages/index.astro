@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.tsx';
+import FeatureShowcase from '../components/FeatureShowcase.tsx';
+import NarrativeSection from '../components/NarrativeSection.tsx';
+import FAQAccordion from '../components/FAQAccordion.tsx';
+import DocCards from '../components/DocCards.astro';
+import { site } from '../config/site';
+import { features, narrative, faqGroups } from '../config/home';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (path: string) => base + (path.startsWith('/') ? path : '/' + path);
+---
+
+<BaseLayout title={site.title} description={site.description} wide>
+  <Hero client:load />
+
+  <div class="lede-block">
+    <p class="lede">
+      Windows gives you a desktop, a Start menu, a taskbar, and a search bar. The things <em>you</em> actually use every day are still scattered across all of them. Alcove gives them one place to live - a visual workspace you open with a hotkey, arrange the way you work, and close again.
+    </p>
+  </div>
+
+  <FeatureShowcase client:visible features={features} />
+
+  {narrative.map((section) => <NarrativeSection client:visible section={section} />)}
+
+  <FAQAccordion client:visible groups={faqGroups} supportHref={withBase('/support/')} />
+
+  <h2>The docs</h2>
+  <DocCards />
+
+  <h2>Getting help</h2>
+  <p>
+    Questions, bugs, feature requests - all welcome. See <a href={withBase('/support/')}>Support</a> for the fastest route, or email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+  </p>
+</BaseLayout>

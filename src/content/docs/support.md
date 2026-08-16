@@ -2,21 +2,20 @@
 title: Support
 heading: Support
 summary: Where your files live, answers to the questions that come up most, and how to report something that is broken.
-description: Support and troubleshooting for CleanLaunch, a Windows desktop shortcut manager.
-permalink: /support/
+description: Support and troubleshooting for Alcove, a visual workspace for Windows.
 toc: true
 ---
 
-The fastest way to get help is to email <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>, or to open an issue at [{{ site.issues_url }}]({{ site.issues_url }}). Issues are public, so use email for anything private.
+The fastest way to get help is to email <a href="mailto:iamincontrol.dev@gmail.com">iamincontrol.dev@gmail.com</a>, or to open an issue at [https://github.com/IAmInControlll/docs/issues](https://github.com/IAmInControlll/docs/issues). Issues are public, so use email for anything private.
 
-CleanLaunch is a personal project, so replies are best-effort rather than same-day.
+Alcove is a personal project, so replies are best-effort rather than same-day.
 
 ## Where your files are
 
-Everything CleanLaunch stores is under one folder:
+Everything Alcove stores is under one folder:
 
 ```
-%APPDATA%\CleanLaunch\
+%APPDATA%\Alcove\
 ├── shortcuts\   copies of the shortcuts you added
 ├── icons\       cached icons
 ├── settings.json
@@ -27,7 +26,7 @@ Everything CleanLaunch stores is under one folder:
 └── exchange_rates.json
 ```
 
-Paste `%APPDATA%\CleanLaunch` into the address bar in File Explorer to open it, or use the link in Settings > About.
+Paste `%APPDATA%\Alcove` into the address bar in File Explorer to open it, or use the link in Settings > About.
 
 ## Reporting a problem
 
@@ -35,7 +34,7 @@ The more of this you can include, the faster something gets fixed:
 
 1. What you expected, and what happened instead.
 2. The exact steps that trigger it, ideally from a fresh launch of the app.
-3. Your CleanLaunch version, from Settings > About.
+3. Your Alcove version, from Settings > About.
 4. Your Windows version, from `winver`.
 5. Whether the problem survives a restart of the app, and whether it survives Settings > About > "Reset settings".
 
@@ -49,13 +48,13 @@ Current builds are not code-signed, so Windows SmartScreen may show a "Windows p
 
 ### There are two installers. Which one do I want?
 
-The `.exe` (NSIS) installer is the one to use for a normal install. It installs to `%LOCALAPPDATA%\Programs\CleanLaunch` for your user account and needs no administrator rights.
+The `.exe` (NSIS) installer is the one to use for a normal install. It installs to `%LOCALAPPDATA%\Programs\Alcove` for your user account and needs no administrator rights.
 
-The `.msi` (WiX) installer is the enterprise option. It always installs for all users, to `C:\Program Files\CleanLaunch`, and needs administrator rights.
+The `.msi` (WiX) installer is the enterprise option. It always installs for all users, to `C:\Program Files\Alcove`, and needs administrator rights.
 
 ### I deleted a shortcut from the grid. Did I delete the real file?
 
-No. CleanLaunch works on its own copy inside `shortcuts\`, so deleting from the grid removes that copy and leaves the original where it was.
+No. Alcove works on its own copy inside `shortcuts\`, so deleting from the grid removes that copy and leaves the original where it was.
 
 Linked external folders work the same way in spirit: dragging a folder in creates a Windows junction, and deleting it removes only the junction. The real folder and everything inside it is untouched.
 
@@ -89,10 +88,10 @@ Two cautions. A backup file contains your search history and the real paths of y
 
 Uninstall from Windows Settings > Apps > Installed apps, or from the Start menu entry.
 
-The installer cleans up after itself: it restores your desktop icons if you had hidden them, removes the auto-start entry, and offers to delete your CleanLaunch data folder. Decline that last prompt if you want to keep your workspace for a future reinstall. To remove it later by hand, delete `%APPDATA%\CleanLaunch\`.
+The installer cleans up after itself: it restores your desktop icons if you had hidden them, removes the auto-start entry, and offers to delete your Alcove data folder. Decline that last prompt if you want to keep your workspace for a future reinstall. To remove it later by hand, delete `%APPDATA%\Alcove\`.
 
 Backup files you exported are never touched by the uninstaller. Delete those yourself.
 
 ## Privacy and terms
 
-See the [Privacy Policy]({{ '/privacy/' | relative_url }}) for what is stored and what leaves your device, and the [Terms of Use]({{ '/terms/' | relative_url }}) for the licence the app is provided under.
+See the [Privacy Policy](../privacy/) for what is stored and what leaves your device, and the [Terms of Use](../terms/) for the licence the app is provided under.
