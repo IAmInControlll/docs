@@ -3,7 +3,7 @@ title: Privacy Policy
 heading: Alcove Privacy Policy
 summary: What Alcove keeps on your device, the three cases where anything leaves it, and how to remove all of it.
 description: The Alcove privacy policy. Alcove is a visual workspace for Windows with no accounts, no telemetry, and no analytics.
-updated: 2026-08-16
+updated: 2026-08-17
 toc: true
 ---
 
@@ -16,7 +16,7 @@ Alcove is a personal project built by [IAmInControlll](https://github.com/IAmInC
 - Everything Alcove stores about your workspace lives on your own disk, in `%APPDATA%\Alcove\`.
 - There is no account, no sign-in, and no identifier that ties your installation to you.
 - There is no telemetry, no analytics, and no crash reporting.
-- Three features reach the network, and all three are ones you trigger: Wikipedia lookups, opening a Google search in your browser, and downloading the European Central Bank rate feed.
+- Three features reach the network: Wikipedia lookups and opening a Google search in your browser are ones you trigger; the European Central Bank rate feed may also refresh automatically at startup when the cached rates are stale or missing.
 - Nothing is sold, shared, or handed to an advertiser, because nothing is collected in the first place.
 
 ## What Alcove does not do
@@ -72,16 +72,16 @@ Alcove reaches the network in these cases only. As with any network request, the
 
 - **Wikipedia search** - when you select the Wikipedia scope in the Command Palette, Alcove sends what you type to the Wikimedia Foundation API at `en.wikipedia.org`. This happens automatically as you type: once your query reaches two characters, it is sent about 300 milliseconds after you stop typing. **You do not have to press Enter for this to happen.** Selecting a result can trigger a second request for that article's text, shown in the preview pane under the CC BY-SA 4.0 licence. Nothing is sent to Wikipedia while you are in Local or Google mode. Wikimedia's handling of these requests is governed by the [Wikimedia Foundation Privacy Policy](https://foundation.wikimedia.org/wiki/Policy:Privacy_policy).
 - **Google search** - when you select the Google scope and launch a search, Alcove opens your default browser at a Google search URL. It does not contact Google itself, and typing alone sends nothing. From that point on you are in your browser, and Google's own [privacy policy](https://policies.google.com/privacy) applies.
-- **Currency exchange rates** - when you type a conversion such as `100 USD to EUR`, Alcove downloads the daily reference rate feed from the European Central Bank at `www.ecb.europa.eu`. Your query text is never sent; the same public feed is downloaded regardless of what you typed. Rates are cached locally for up to 24 hours, so repeated conversions usually make no request at all.
+- **Currency exchange rates** - when you type a conversion such as `100 USD to EUR`, Alcove downloads the daily reference rate feed from the European Central Bank at `www.ecb.europa.eu`. Your query text is never sent; the same public feed is downloaded regardless of what you typed. Rates are cached locally for up to 24 hours, so repeated conversions usually make no request at all. Alcove also refreshes this feed automatically at startup when the cache is stale or missing, so currency answers are ready before you first need them.
 - **Microsoft Store** - if you installed Alcove from the Microsoft Store, the Store handles installation and updates under Microsoft's own privacy policy. Alcove itself performs no update checks.
 
-To summarise what typing alone does: in Local mode nothing is sent anywhere; in Google mode nothing is sent until you launch the search; in Wikipedia mode your query is sent to Wikipedia automatically, as described above.
+To summarise what typing alone does: in Local mode nothing is sent anywhere; in Google mode nothing is sent until you launch the search; in Wikipedia mode your query is sent to Wikipedia automatically, as described above. The ECB rate feed may also be fetched at startup regardless of which mode you are in.
 
 ## How long data is kept
 
 - **Workspace data** (shortcuts, layout, folder colours, settings, launch statistics) is kept until you delete the item, reset the setting, or remove the data folder. Nothing expires on its own.
 - **Search history** keeps at most 20 queries per mode. The twenty-first pushes the oldest out.
-- **Cached exchange rates** are treated as stale after 24 hours and replaced on the next conversion.
+- **Cached exchange rates** are treated as stale after 24 hours. Alcove attempts to refresh them at startup or on the next conversion; if the refresh fails, the stale cache is retained.
 - **The icon cache** is kept until you clear it or the shortcut it belongs to is removed.
 
 Because none of this leaves your device, there is no server-side copy with its own retention period.
@@ -95,7 +95,7 @@ You can remove any of it at any time:
 - **Icon cache** - Settings > About > "Clear cache".
 - **Settings** - Settings > About > "Reset settings". This deletes `settings.json` and restores the defaults. It does **not** delete your shortcuts, grid layout, folder colours, launch statistics, or search history.
 - **Individual shortcuts** - delete them from the grid. For a linked folder, only the junction is removed; the original folder and everything in it is left alone.
-- **Everything** - delete the `%APPDATA%\Alcove\` folder. That removes every file Alcove stores locally. Uninstalling through the Windows installer also offers to remove it.
+- **Everything** - delete the `%APPDATA%\Alcove\` folder yourself. That removes every file Alcove stores locally. The reset command above removes settings but not your shortcuts or history, so deleting the folder is the way to clear everything. The NSIS uninstaller also offers to delete this folder with an explicit checkbox (off by default, so your workspace is preserved unless you opt in), and it does so safely without following junctions into the external folders they link to.
 - **Backups** - delete the `.alcove-backup` files yourself, wherever you saved them. Nothing else removes them.
 
 ## Permissions
@@ -123,7 +123,7 @@ Here those rights are simple to exercise, because nothing is held about you anyw
 
 - **Access and portability** - every file is on your disk in plain JSON, and the backup feature exports the whole workspace in one archive.
 - **Deletion** - see [Removing your data](#removing-your-data). No request to anyone is needed.
-- **Objection and restriction** - the network features are opt-in by use. Staying in Local mode and not using currency conversion means nothing is requested at all.
+- **Objection and restriction** - the Wikipedia and Google network features are opt-in by use. Staying in Local mode and not using currency conversion means no query text is sent. The ECB rate feed may still refresh at startup; it sends no query text or workspace data, but the receiving service still sees the IP address and standard request headers described above.
 
 The one exception is anything you send directly. If you email the address below, that message and your email address are processed by the relevant email provider so it can be read and answered, and are kept only as long as needed for that. If you open a GitHub issue instead, that content is public and is handled under [GitHub's Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
 
