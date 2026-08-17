@@ -143,4 +143,4 @@ If this policy changes, the updated version will be published here and included 
 
 For privacy questions, requests, or concerns, email <a href="mailto:iamincontrol.dev@gmail.com">iamincontrol.dev@gmail.com</a>.
 
-You can also open an issue at [https://github.com/IAmInControlll/docs/issues](https://github.com/IAmInControlll/docs/issues). Anyone can open one and no special access is needed, but **issues there are public**, so use email for anything you would rather not publish.
+You can also open an issue at [https://github.com/IAmInControlll/alcove-web/issues](https://github.com/IAmInControlll/alcove-web/issues). Anyone can open one and no special access is needed, but **issues there are public**, so use email for anything you would rather not publish.

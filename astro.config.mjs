@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://iamincontrolll.github.io',
-  base: '/docs',
+  base: '/alcove-web',
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

@@ -6,7 +6,7 @@ description: Support and troubleshooting for Alcove, a visual workspace for Wind
 toc: true
 ---
 
-The fastest way to get help is to email <a href="mailto:iamincontrol.dev@gmail.com">iamincontrol.dev@gmail.com</a>, or to open an issue at [https://github.com/IAmInControlll/docs/issues](https://github.com/IAmInControlll/docs/issues). Issues are public, so use email for anything private.
+The fastest way to get help is to email <a href="mailto:iamincontrol.dev@gmail.com">iamincontrol.dev@gmail.com</a>, or to open an issue at [https://github.com/IAmInControlll/alcove-web/issues](https://github.com/IAmInControlll/alcove-web/issues). Issues are public, so use email for anything private.
 
 Alcove is a personal project, so replies are best-effort rather than same-day.
 

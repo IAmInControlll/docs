@@ -2,14 +2,14 @@
 
 The documentation and marketing site for **Alcove**, a visual workspace for Windows.
 
-**[iamincontrolll.github.io/docs](https://iamincontrolll.github.io/docs/)**
+**[iamincontrolll.github.io/alcove-web](https://iamincontrolll.github.io/alcove-web/)**
 
 | Page | |
 |---|---|
-| [Home](https://iamincontrolll.github.io/docs/) | Marketing landing page |
-| [Privacy Policy](https://iamincontrolll.github.io/docs/privacy/) | What is stored on your device, what leaves it, and how to remove it |
-| [Terms of Use](https://iamincontrolll.github.io/docs/terms/) | What you can and can't do with Alcove, and the limits of the licence |
-| [Support](https://iamincontrolll.github.io/docs/support/) | Where your data lives, common questions, and how to get help |
+| [Home](https://iamincontrolll.github.io/alcove-web/) | Marketing landing page |
+| [Privacy Policy](https://iamincontrolll.github.io/alcove-web/privacy/) | What is stored on your device, what leaves it, and how to remove it |
+| [Terms of Use](https://iamincontrolll.github.io/alcove-web/terms/) | What you can and can't do with Alcove, and the limits of the licence |
+| [Support](https://iamincontrolll.github.io/alcove-web/support/) | Where your data lives, common questions, and how to get help |
 
 ## Tech stack
 
@@ -32,7 +32,7 @@ npm install
 npm run dev
 ```
 
-Then open the URL Astro prints (typically <http://localhost:4321/docs>).
+Then open the URL Astro prints (typically <http://localhost:4321/alcove-web>).
 
 ## Build and preview
 
@@ -47,7 +47,7 @@ Pushing to `main` triggers the GitHub Actions workflow in `.github/workflows/dep
 
 The GitHub repo must be configured to use GitHub Actions as the Pages source (Settings > Pages > Source > GitHub Actions). This is a one-time manual step.
 
-The base URL is `/docs`, configured in `astro.config.mjs`. All internal links account for this via `import.meta.env.BASE_URL`.
+The base URL is `/alcove-web`, configured in `astro.config.mjs`. All internal links account for this via `import.meta.env.BASE_URL`.
 
 ## Project structure
 
@@ -76,6 +76,6 @@ brand/              # local-only brand archive (gitignored, not deployed)
 
 ## Questions or corrections
 
-Found something inaccurate, unclear, or out of date? Please [open an issue](https://github.com/IAmInControlll/docs/issues). Anyone can, and no special access is needed.
+Found something inaccurate, unclear, or out of date? Please [open an issue](https://github.com/IAmInControlll/alcove-web/issues). Anyone can, and no special access is needed.
 
 For anything you would rather not discuss in public, email <iamincontrol.dev@gmail.com>.
