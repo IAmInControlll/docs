@@ -40,7 +40,7 @@ export default function AlcoveTaglineLockup({
     };
     update();
     const observer = new MutationObserver(update);
-    observer.observe(root, { attributes: { attributeFilter: ['data-theme'] } });
+    observer.observe(root, { attributeFilter: ['data-theme'] });
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     media.addEventListener('change', update);
     return () => {

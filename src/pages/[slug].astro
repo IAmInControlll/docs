@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
@@ -12,9 +13,31 @@ export async function getStaticPaths() {
 
 const { doc } = Astro.props;
 const { Content } = await render(doc);
-const { title, heading, summary, description, updated, toc } = doc.data;
+const { title, heading, summary, description, updated, toc, autoDownload } = doc.data;
 ---
 
 <BaseLayout title={title} description={description} heading={heading} summary={summary} updated={updated} toc={toc}>
   <Content />
 </BaseLayout>
+
+{autoDownload && (
+  <script is:inline define:vars={{ downloadUrl: site.downloadUrl }}>
+    (function () {
+      function startDownload() {
+        try {
+          var a = document.createElement('a');
+          a.href = downloadUrl;
+          a.download = 'Alcove-setup.exe';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        } catch (e) {}
+      }
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        startDownload();
+      } else {
+        document.addEventListener('DOMContentLoaded', startDownload);
+      }
+    })();
+  </script>
+)}

@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const docs = defineCollection({
@@ -10,6 +11,7 @@ const docs = defineCollection({
     description: z.string(),
     updated: z.union([z.string(), z.date()]).transform((v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v)).optional(),
     toc: z.boolean().default(true),
+    autoDownload: z.boolean().default(false),
   }),
 });
 

@@ -131,7 +131,7 @@ export const faqGroups: FAQGroup[] = [
       {
         question: 'How do I get it?',
         answer:
-          'Download the installer for Windows. Current builds are not code-signed, so Windows SmartScreen may warn you. Choose "More info" and "Run anyway" if you trust the download.',
+          'Click "Download for Windows" on the home page to get the latest installer - you\'ll be taken to a short install guide while the file downloads. Current builds are not code-signed, so Windows SmartScreen may warn you; choose "More info" and "Run anyway" if you trust the download. Step-by-step instructions are on the <a href="install/">Install</a> page.',
       },
       {
         question: 'Can I back up my workspace?',

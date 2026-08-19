@@ -2,7 +2,11 @@ import { motion, useReducedMotion } from 'motion/react';
 import AlcoveTaglineLockup from './AlcoveTaglineLockup';
 import HeroCTAs from './HeroCTAs';
 
-export default function Hero() {
+interface Props {
+  downloadHref?: string;
+}
+
+export default function Hero({ downloadHref }: Props) {
   const reduce = useReducedMotion();
 
   const lockupProps = reduce
@@ -39,7 +43,7 @@ export default function Hero() {
         Clear the clutter. Keep what matters close.
       </motion.p>
       <motion.div {...ctaProps}>
-        <HeroCTAs />
+        <HeroCTAs downloadHref={downloadHref} />
       </motion.div>
     </div>
   );

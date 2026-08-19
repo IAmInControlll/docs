@@ -5,6 +5,7 @@ import FeatureShowcase from '../components/FeatureShowcase.tsx';
 import NarrativeSection from '../components/NarrativeSection.tsx';
 import FAQAccordion from '../components/FAQAccordion.tsx';
 import DocCards from '../components/DocCards.astro';
+import Email from '../components/Email.astro';
 import { site } from '../config/site';
 import { features, narrative, faqGroups } from '../config/home';
 
@@ -13,7 +14,7 @@ const withBase = (path: string) => base + (path.startsWith('/') ? path : '/' + p
 ---
 
 <BaseLayout title={site.title} description={site.description} wide>
-  <Hero client:load />
+  <Hero client:load downloadHref={withBase('/install/')} />
 
   <div class="lede-block">
     <p class="lede">
@@ -32,6 +33,6 @@ const withBase = (path: string) => base + (path.startsWith('/') ? path : '/' + p
 
   <h2>Getting help</h2>
   <p>
-    Questions, bugs, feature requests - all welcome. See <a href={withBase('/support/')}>Support</a> for the fastest route, or email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+    Questions, bugs, feature requests - all welcome. See <a href={withBase('/support/')}>Support</a> for the fastest route, or email <Email email={site.contactEmail} />.
   </p>
 </BaseLayout>

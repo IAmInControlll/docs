@@ -152,7 +152,7 @@ const canonicalPath = Astro.url.pathname.replace(base, '').replace(/\/+/g, '/') 
       </div>
     </footer>
 
-    <script>
+    <script is:inline>
       (function () {
         var prose = document.querySelector('.prose');
         if (!prose) return;
@@ -161,7 +161,7 @@ const canonicalPath = Astro.url.pathname.replace(base, '').replace(/\/+/g, '/') 
           if (t.parentElement && t.parentElement.classList.contains('table-wrap')) return;
           var wrap = document.createElement('div');
           wrap.className = 'table-wrap';
-          t.parentNode.insertBefore(wrap, t);
+          if (t.parentNode) t.parentNode.insertBefore(wrap, t);
           wrap.appendChild(t);
         });
 
@@ -180,6 +180,7 @@ const canonicalPath = Astro.url.pathname.replace(base, '').replace(/\/+/g, '/') 
         if (!toc || headings.length < 3) return;
 
         var list = toc.querySelector('ol');
+        if (!list) return;
         var links = [];
 
         headings.forEach(function (h) {
@@ -226,6 +227,45 @@ const canonicalPath = Astro.url.pathname.replace(base, '').replace(/\/+/g, '/') 
 
         headings.forEach(function (h) {
           observer.observe(h);
+        });
+      })();
+    </script>
+
+    <script is:inline>
+      (function () {
+        function copy(text) {
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              return navigator.clipboard.writeText(text);
+            }
+          } catch (e) {}
+          return new Promise(function (resolve) {
+            try {
+              var ta = document.createElement('textarea');
+              ta.value = text;
+              ta.style.position = 'fixed';
+              ta.style.opacity = '0';
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand('copy');
+              document.body.removeChild(ta);
+            } catch (e) {}
+            resolve();
+          });
+        }
+        document.querySelectorAll('.email-copy[data-email]').forEach(function (btn) {
+          var email = btn.getAttribute('data-email');
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            copy(email);
+            btn.classList.add('copied');
+            btn.setAttribute('aria-label', 'Email address copied');
+            setTimeout(function () {
+              btn.classList.remove('copied');
+              btn.setAttribute('aria-label', 'Copy email address');
+            }, 2000);
+          });
         });
       })();
     </script>

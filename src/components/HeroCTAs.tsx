@@ -5,7 +5,7 @@ interface Props {
   docsHref?: string;
 }
 
-export default function HeroCTAs({ downloadHref = '#download', docsHref = '#docs' }: Props) {
+export default function HeroCTAs({ downloadHref = '/install/', docsHref = '#docs' }: Props) {
   return (
     <div className="hero-cta">
       <Button variant="primary" href={downloadHref}>

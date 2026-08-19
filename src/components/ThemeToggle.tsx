@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -9,23 +9,14 @@ function currentTheme(): Theme {
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>('light');
-
-  useEffect(() => {
-    setTheme(currentTheme());
-  }, []);
-
   const toggle = useCallback(() => {
-    setTheme((prev) => {
-      const next: Theme = prev === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try {
-        localStorage.setItem('alcove-theme', next);
-      } catch (e) {
-        /* ignore */
-      }
-      return next;
-    });
+    const next: Theme = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem('alcove-theme', next);
+    } catch (e) {
+      /* ignore */
+    }
   }, []);
 
   return (

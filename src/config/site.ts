@@ -7,4 +7,7 @@ export const site = {
   lang: 'en-US',
   contactEmail: 'iamincontrol.dev@gmail.com',
   issuesUrl: 'https://github.com/IAmInControlll/alcove-web/issues',
+  downloadUrl:
+    'https://github.com/IAmInControlll/alcove-web/releases/latest/download/Alcove-setup.exe',
+  releaseUrl: 'https://github.com/IAmInControlll/alcove-web/releases/latest',
 };
