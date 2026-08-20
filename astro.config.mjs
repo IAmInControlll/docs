@@ -4,8 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://iamincontrolll.github.io',
-  base: '/alcove-web',
+  site: 'https://alcove-app.com',
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
