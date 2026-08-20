@@ -2,14 +2,14 @@
 
 The documentation and marketing site for **Alcove**, a visual workspace for Windows.
 
-**[iamincontrolll.github.io/alcove-web](https://iamincontrolll.github.io/alcove-web/)**
+**[alcove-app.com](https://alcove-app.com/)**
 
 | Page | |
 |---|---|
-| [Home](https://iamincontrolll.github.io/alcove-web/) | Marketing landing page |
-| [Privacy Policy](https://iamincontrolll.github.io/alcove-web/privacy/) | What is stored on your device, what leaves it, and how to remove it |
-| [Terms of Use](https://iamincontrolll.github.io/alcove-web/terms/) | What you can and can't do with Alcove, and the limits of the licence |
-| [Support](https://iamincontrolll.github.io/alcove-web/support/) | Where your data lives, common questions, and how to get help |
+| [Home](https://alcove-app.com/) | Marketing landing page |
+| [Privacy Policy](https://alcove-app.com/privacy/) | What is stored on your device, what leaves it, and how to remove it |
+| [Terms of Use](https://alcove-app.com/terms/) | What you can and can't do with Alcove, and the limits of the licence |
+| [Support](https://alcove-app.com/support/) | Where your data lives, common questions, and how to get help |
 
 ## Tech stack
 
@@ -32,7 +32,7 @@ npm install
 npm run dev
 ```
 
-Then open the URL Astro prints (typically <http://localhost:4321/alcove-web>).
+Then open the URL Astro prints (typically <http://localhost:4321/>).
 
 ## Build and preview
 
@@ -47,7 +47,7 @@ Pushing to `main` triggers the GitHub Actions workflow in `.github/workflows/dep
 
 The GitHub repo must be configured to use GitHub Actions as the Pages source (Settings > Pages > Source > GitHub Actions). This is a one-time manual step.
 
-The base URL is `/alcove-web`, configured in `astro.config.mjs`. All internal links account for this via `import.meta.env.BASE_URL`.
+The site is served at the custom domain `alcove-app.com` (apex, no base path), configured in `astro.config.mjs`. All internal links use `import.meta.env.BASE_URL`.
 
 ## Project structure
 

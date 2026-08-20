@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/IAmInControlll/alcove-web/issues"
   },
-  "homepage": "https://iamincontrolll.github.io/alcove-web/",
+  "homepage": "https://alcove-app.com/",
   "devDependencies": {
     "@astrojs/react": "^6.0.2",
     "@astrojs/sitemap": "^3.7.3",
