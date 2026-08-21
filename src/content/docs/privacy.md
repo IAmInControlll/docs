@@ -1,9 +1,9 @@
 ---
 title: Privacy Policy
 heading: Alcove Privacy Policy
-summary: What Alcove keeps on your device, the three cases where anything leaves it, and how to remove all of it.
+summary: What Alcove keeps on your device, the cases where anything leaves it, and how to remove all of it.
 description: The Alcove privacy policy. Alcove is a visual workspace for Windows with no accounts, no telemetry, and no analytics.
-updated: 2026-08-17
+updated: 2026-08-21
 toc: true
 ---
 
@@ -16,7 +16,7 @@ Alcove is a personal project built by [IAmInControlll](https://github.com/IAmInC
 - Everything Alcove stores about your workspace lives on your own disk, in `%APPDATA%\Alcove\`.
 - There is no account, no sign-in, and no identifier that ties your installation to you.
 - There is no telemetry, no analytics, and no crash reporting.
-- Three features reach the network: Wikipedia lookups and opening a Google search in your browser are ones you trigger; the European Central Bank rate feed may also refresh automatically at startup when the cached rates are stale or missing.
+- Three features reach the network: Wikipedia lookups and opening a Google search in your browser are ones you trigger; the European Central Bank rate feed may also refresh automatically at startup when the cached rates are stale or missing. Alcove also makes one anonymous request to the GitHub Releases API at launch to check whether a newer build is available.
 - Nothing is sold, shared, or handed to an advertiser, because nothing is collected in the first place.
 
 ## What Alcove does not do
@@ -26,7 +26,7 @@ Alcove does not:
 - Collect usage analytics, event data, or product metrics of any kind.
 - Send crash reports, stack traces, or diagnostic logs anywhere.
 - Create an account, a licence key, a device ID, or any other identifier for you.
-- Contact a server of its own. There is no Alcove backend, and the app has no auto-updater, so it never checks in for a new version by itself.
+- Contact a server of its own. There is no Alcove backend and no auto-updater, so the app never checks in for a new version by itself. It does make one anonymous, unauthenticated request to the GitHub Releases API at launch to check whether a newer build is available; see "Data sent to external services" below.
 - Read your browsing history, your documents, your email, or your clipboard.
 - Show ads, or include any advertising or marketing SDK.
 - Sell, rent, or share personal information with third parties.
@@ -74,6 +74,7 @@ Alcove reaches the network in these cases only. As with any network request, the
 - **Google search** - when you select the Google scope and launch a search, Alcove opens your default browser at a Google search URL. It does not contact Google itself, and typing alone sends nothing. From that point on you are in your browser, and Google's own [privacy policy](https://policies.google.com/privacy) applies.
 - **Currency exchange rates** - when you type a conversion such as `100 USD to EUR`, Alcove downloads the daily reference rate feed from the European Central Bank at `www.ecb.europa.eu`. Your query text is never sent; the same public feed is downloaded regardless of what you typed. Rates are cached locally for up to 24 hours, so repeated conversions usually make no request at all. Alcove also refreshes this feed automatically at startup when the cache is stale or missing, so currency answers are ready before you first need them.
 - **Microsoft Store** - if you installed Alcove from the Microsoft Store, the Store handles acquisition and listing under Microsoft's own privacy policy. Alcove does not currently include an auto-updater, so updates depend on the distribution channel and the Store's own update behavior for unpackaged apps.
+- **Update check** - on launch, Alcove makes one unauthenticated `GET` request to `api.github.com` to fetch the latest release metadata for the project's public repository. The request sends no user data, no identifier, and no workspace contents - only standard HTTP headers (including a `User-Agent` string that names Alcove) and your IP address, which is inherent to any HTTP request. GitHub's response is compared to the running version; if a newer release exists, a toast and a title bar link offer a way to download it. An ETag is cached locally so unchanged responses are faster and lighter (a "not modified" response has no body). GitHub's handling of the request is governed by the [GitHub Privacy Statement](https://docs.github.com/site-policy/privacy-statements/github-general-privacy-statement).
 
 To summarise what typing alone does: in Local mode nothing is sent anywhere; in Google mode nothing is sent until you launch the search; in Wikipedia mode your query is sent to Wikipedia automatically, as described above. The ECB rate feed may also be fetched at startup regardless of which mode you are in.
 
@@ -106,7 +107,7 @@ Alcove requests the following Windows capabilities:
 - **Shell access** - to launch applications, extract icons, and work with Windows system folders.
 - **Audio control** - to read and set system volume, switch output devices, and drive the per-app mixer.
 - **Power actions** - to shut down, restart, sleep, or lock the machine when you confirm one of those actions.
-- **Network access** - for Wikipedia lookups and the ECB rate feed only.
+- **Network access** - for Wikipedia lookups, the ECB rate feed, and the launch update check.
 - **Global hotkeys** - to show or hide the window, Peek, and the Command Palette from anywhere.
 
 Alcove does not access your camera, microphone, location, contacts, messages, or browsing history.

@@ -522,6 +522,29 @@ main.wide .prose > pre {
   padding: 14px 26px;
 }
 
+.prose .install-changelog-link {
+  margin: 0 0 16px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.prose[data-slug="changelog"] ul {
+  list-style: none;
+  padding-left: 14px;
+}
+
+.prose[data-slug="changelog"] li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.prose[data-slug="changelog"] li::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: var(--text-secondary);
+}
+
 .prose .install-callout {
   margin: 0 0 20px;
   padding: 14px 18px;
@@ -765,6 +788,13 @@ h3:hover .anchor,
   justify-content: center;
 }
 
+.hero-changelog-link {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -965,6 +995,32 @@ main.wide .prose > h2 {
   color: var(--text-muted);
   opacity: 0.8;
 }
+
+.site-footer .donate-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer .donate-btn .kofi-badge {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.site-footer .donate-btn .kofi-badge-light { display: none; }
+.site-footer .donate-btn .kofi-badge-dark { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-footer .donate-btn .kofi-badge-dark { display: none; }
+  :root:not([data-theme="light"]) .site-footer .donate-btn .kofi-badge-light { display: block; }
+}
+
+:root[data-theme="dark"] .site-footer .donate-btn .kofi-badge-dark { display: none; }
+:root[data-theme="dark"] .site-footer .donate-btn .kofi-badge-light { display: block; }
+:root[data-theme="light"] .site-footer .donate-btn .kofi-badge-dark { display: block; }
+:root[data-theme="light"] .site-footer .donate-btn .kofi-badge-light { display: none; }
 
 /* Feature showcase (home page) */
 
@@ -1274,6 +1330,14 @@ main.wide .prose > h2 {
 
   .site-footer nav {
     margin-left: 0;
+    flex-basis: 100%;
+  }
+
+  .site-footer .donate-btn {
+    flex: 0 0 100%;
+  }
+
+  .site-footer .footer-tagline {
     flex-basis: 100%;
   }
 

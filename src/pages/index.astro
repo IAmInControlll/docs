@@ -14,7 +14,7 @@ const withBase = (path: string) => base + (path.startsWith('/') ? path : '/' + p
 ---
 
 <BaseLayout title={site.title} description={site.description} wide>
-  <Hero client:load downloadHref={withBase('/install/')} />
+  <Hero client:load downloadHref={withBase('/install/')} changelogHref={withBase('/changelog/')} />
 
   <div class="lede-block">
     <p class="lede">

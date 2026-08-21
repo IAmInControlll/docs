@@ -3,7 +3,7 @@ title: Terms of Use
 heading: Alcove Terms of Use
 summary: What you can and can't do with Alcove, and the limits of the licence.
 description: Terms of use for Alcove, a visual workspace for Windows.
-updated: 2026-08-16
+updated: 2026-08-21
 toc: true
 ---
 
@@ -74,6 +74,12 @@ This licence ends automatically if you breach these terms, and you may end it at
 ## Severability
 
 If any provision of these terms is found unenforceable, the rest stays in force and the unenforceable part is applied only so far as the law allows.
+
+## Governing law and jurisdiction
+
+These Terms are governed by the laws of the Republic of South Africa, without limiting any mandatory consumer rights that apply where you live.
+
+Any dispute arising from or relating to these Terms or Alcove will be subject to the jurisdiction of the courts of South Africa, except where applicable law gives you the right to bring a claim elsewhere.
 
 ## Contact
 

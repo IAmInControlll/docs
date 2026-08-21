@@ -12,6 +12,8 @@ The installer for the latest release should start downloading on its own. If it 
 
 <a class="btn btn-primary install-cta" href="https://github.com/IAmInControlll/alcove-web/releases/latest/download/Alcove-setup.exe" download>Download Alcove-setup.exe</a>
 
+<p class="install-changelog-link">Want to see what changed? Read the <a href="../changelog/">changelog</a>.</p>
+
 ## Step-by-step
 
 <div class="install-steps">

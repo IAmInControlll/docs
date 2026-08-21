@@ -48,7 +48,7 @@ export const features: FeatureTab[] = [
     title: 'Themes',
     heading: 'Make it look like yours',
     description:
-      'Thirty-seven themes across light, dark, and retro. Adjustable tile size and window opacity. It\'s not the main thing, but it\'s there.',
+      'Forty themes across light, dark, and retro. Adjustable tile size and window opacity. It\'s not the main thing, but it\'s there.',
     screenshot: 'themes.png',
     alt: 'Alcove theme picker showing a selection of light, dark, and retro themes',
   },
@@ -116,7 +116,7 @@ export const faqGroups: FAQGroup[] = [
       {
         question: 'Is it free?',
         answer:
-          'Yes. It\'s a personal project and it\'s free for personal or internal business use. See the Terms of Use for the details.',
+          'Yes. It\'s a personal project and it\'s free for personal or internal business use. See the Terms of Use for the details. If you\'d like to support development, there\'s a <a href="https://ko-fi.com/iamincontrol" target="_blank" rel="noopener noreferrer">Ko-fi page</a> - entirely optional.',
       },
       {
         question: 'What happens to my data?',

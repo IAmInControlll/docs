@@ -10,4 +10,5 @@ export const site = {
   downloadUrl:
     'https://github.com/IAmInControlll/alcove-web/releases/latest/download/Alcove-setup.exe',
   releaseUrl: 'https://github.com/IAmInControlll/alcove-web/releases/latest',
+  donateUrl: 'https://ko-fi.com/iamincontrol',
 };

@@ -4,9 +4,10 @@ import HeroCTAs from './HeroCTAs';
 
 interface Props {
   downloadHref?: string;
+  changelogHref?: string;
 }
 
-export default function Hero({ downloadHref }: Props) {
+export default function Hero({ downloadHref, changelogHref }: Props) {
   const reduce = useReducedMotion();
 
   const lockupProps = reduce
@@ -43,7 +44,7 @@ export default function Hero({ downloadHref }: Props) {
         Clear the clutter. Keep what matters close.
       </motion.p>
       <motion.div {...ctaProps}>
-        <HeroCTAs downloadHref={downloadHref} />
+        <HeroCTAs downloadHref={downloadHref} changelogHref={changelogHref} />
       </motion.div>
     </div>
   );

@@ -5,6 +5,7 @@ export interface NavItem {
 
 export const nav: NavItem[] = [
   { title: 'Home', url: '/' },
+  { title: 'Changelog', url: '/changelog/' },
   { title: 'Privacy', url: '/privacy/' },
   { title: 'Terms', url: '/terms/' },
   { title: 'Support', url: '/support/' },
